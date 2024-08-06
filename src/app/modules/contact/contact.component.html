@@ -1,0 +1,136 @@
+<section class="Contact">
+  <app-section-heading title="Get In Touch"></app-section-heading>
+  <app-section-heading
+    subtitle="Let's Collaborate on Your Next Big Idea"
+  ></app-section-heading>
+
+  <div class="contact-area">
+    <div class="contact-left">
+      <app-logo
+        logoUrl="../assets/img/rafiki.svg"
+        class="contact-img"
+        altText="Welcome"
+      ></app-logo>
+    </div>
+
+    <div class="contact-form">
+      <form
+        [formGroup]="TodoForm"
+        (ngSubmit)="onSubmit()"
+        action=""
+        class="form-details"
+      >
+        <div class="formitem">
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="Full Name">Name *</label>
+            <input
+              type="text"
+              name="Full Name"
+              id="fName"
+              formControlName="fullName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['fullName'].errors }"
+              required
+            />
+            <div
+              *ngIf="submitted && f['fullName'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['fullName'].errors['required']">
+                Full Name is required
+              </div>
+              <div *ngIf="f['fullName'].errors['minLength']">
+                Full Name must be at least 6 characters
+              </div>
+              <div *ngIf="f['fullName'].errors['maxLength']">
+                Full Name must not exceed 20 characters
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="Email">Email *</label>
+            <input
+              type="email"
+              name="Email"
+              id="email"
+              ngModel
+              [email]="true"
+              formControlName="Email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['Email'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['Email'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['Email'].errors['required']">Email is required</div>
+              <div *ngIf="f['Email'].errors['email']">Email is invalid</div>
+            </div>
+          </div>
+
+          <!-- Phone -->
+
+          <div class="form-group">
+            <label for="Phone No.">Phone No. *</label>
+            <input
+              type="text"
+              name="Phone No."
+              id="PhoneNo"
+              formControlName="Phone"
+            />
+          </div>
+
+          <!-- Choose Services  -->
+          <div class="form-service form-group">
+            <label for="services">Services *</label>
+            <div class="option-1 option">
+              <input type="checkbox" name="Web-design" id="check-input" />
+              <label for="Web-design">Web-design</label>
+            </div>
+            <div class="option-2 option">
+              <input type="checkbox" name="UI-UX" id="check-input" />
+              <label for="UI-UX">UI Design</label>
+            </div>
+            <div class="option-3 option">
+              <input type="checkbox" name="productdesign" id="check-input" />
+              <label for="productdesign">Product Design</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="textarea">How can we help ? *</label>
+            <textarea
+              class="form-group"
+              name="message"
+              id="message"
+              cols="60"
+              placeholder="A brief description here."
+              formControlName="Message"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['Message'].errors }"
+            ></textarea>
+            <div
+              *ngIf="submitted && f['Message'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['Message'].errors['required']">
+                Message is required
+              </div>
+              <div *ngIf="f['Message'].errors['minlength']">
+                Message must be at least 6 characters
+              </div>
+              <div *ngIf="f['Message'].errors['maxlength']">
+                Message must not exceed 20 characters
+              </div>
+            </div>
+
+            <app-button title="Get In Touch"></app-button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

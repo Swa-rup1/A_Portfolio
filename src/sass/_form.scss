@@ -1,0 +1,158 @@
+@import 'variables';
+
+.contact-form {
+  display: flex;
+
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+.Contact {
+  // margin-top: $section-margin;
+  padding: 1rem;
+
+  .contact-area {
+    display: flex;
+    justify-content: space-between;
+
+    .contact-left {
+      width: 50%;
+      display: flex;
+
+      align-items: center;
+
+      img.contact-img {
+        width: 70%;
+      }
+    }
+  }
+
+  
+}
+
+.form-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .form-group{
+    margin: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+    
+  }
+
+  input {
+    width: 90%;
+    
+    height: 25px;
+    
+    background-color: transparent;
+    color:$white;
+    border: none;
+    
+    border-bottom: 1px solid $white;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  label {
+    font-size: $font-size-medium;
+  }
+  .hidden {
+    display: none;
+  }
+  
+
+  textarea {
+    background-color: transparent;
+    height: 18px;
+  color: #e7e7e7;
+  border: none;
+  
+  border-bottom: 1px dashed #e7e7e7;
+
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  select {
+    width: 50%;
+    height: 30px;
+    background-color: transparent;
+    color: $white;
+    border: 1px solid $white;
+    padding: 5px;
+
+    option {
+      background-color: $black;
+    }
+  }
+}
+
+.form-btn {
+  background-color: $brownred;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: $font-medium;
+  font-size: $font-size-small;
+  margin-top: 20px;
+  color: $white;
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  background-color: $white;
+  border: 1px solid #333;
+  box-shadow: #999 0px 1px 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  display: inline;
+}
+
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.contact-p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-headp {
+  text-align: center;
+}
+
+.contact-p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.span-form {
+  font-weight: $font-bold;
+  font-size: $font-size-x-large;
+}
+.p-form {
+  font-weight: $font-regular;
+  font-size: $font-size-small;
+}
+.form-service {
+  display: flex;
+  justify-content: space-evenly;
+
+  & div.option {
+    display: flex;
+    gap: 10px;
+  }
+}

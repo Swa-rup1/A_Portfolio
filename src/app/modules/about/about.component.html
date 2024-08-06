@@ -1,0 +1,34 @@
+<section class="About">
+  <app-section-heading title="ABOUT ME"></app-section-heading>
+  <app-section-heading
+    subtitle="A brief of Offering Services"
+  ></app-section-heading>
+  <div class="aboutsection flex-row">
+    <div class="left-about">
+      <div class="hero-body">
+        <!-- <span class="span-subtitle"> <em>Hello I’m Swarup </strong></span> -->
+
+        <p class="hero-p">
+          A passionate web developer with a knack for creating exceptional user
+          experiences. With a strong foundation in React and Figma, I specialize
+          in building intuitive and visually appealing web applications.
+        </p>
+        <p class="hero-p">
+          My goal is to blend creativity and technical expertise to deliver
+          projects that not only meet but exceed client expectations. When I'm
+          not coding, you can find me exploring the latest design trends or
+          brainstorming innovative solutions to complex problems.
+        </p>
+      </div>
+    </div>
+
+    <div class="right-about">
+      <div class="skillscard" appCardAnimation>
+        <div class="scard" *ngFor="let item of skills">
+          <app-logo logoUrl="{{ item.logoUrl }}" alt="" class="skills-img">
+          </app-logo>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

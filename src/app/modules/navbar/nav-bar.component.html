@@ -1,0 +1,50 @@
+<header class="nav-section " id="nav-section">
+  <!-- Nav-bar section -->
+  <nav class="nav-bar flex-row" id="nav-desktop">
+    <!-- Logo  -->
+    <app-logo
+      logoUrl="./assets/img/Port-Logo.svg"
+      altText="My Company Logo"
+      class="logo"
+    ></app-logo>
+
+    <!-- Nav-iul -->
+
+    <div>
+      <ul class="mid-nav flex-row">
+        <li *ngFor="let item of navItems">
+          <a class="nav-a" href="#{{ item.route }}">{{ item.label }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Icons -->
+    <div class="nav-contact">
+      <div class="hero-icon">
+        <div *ngFor="let item of hero_icon"  class="icon-nav">
+          <a href="{{ item.href }}" target="_blank">
+            <i class="{{ item.class }}"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hamburger menu button -->
+  <!-- <div class="hamburger-menu" id="hamburger-menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div> -->
+
+  <!-- Mobile Nav-bar section -->
+  <!-- <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mid-nav flex-column">
+      <li><a href="#hero" class="nav-a">HOME</a></li>
+      <li><a href="#about" class="nav-a">ABOUT</a></li>
+      <li><a href="#skills" class="nav-a">SKILLS</a></li>
+      <li><a href="#Projects" class="nav-a">PROJECT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav> -->
+</header>

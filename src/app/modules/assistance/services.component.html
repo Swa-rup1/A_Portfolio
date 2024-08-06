@@ -1,0 +1,24 @@
+<section class="services">
+  <app-section-heading title="Services"></app-section-heading>
+  <app-section-heading
+    subtitle="A brief of Offering Services"
+  ></app-section-heading>
+  <div class="grid-card">
+    <div *ngFor="let item of Services" class="card-container">
+      <div class="card">
+        <app-logo
+          logoUrl="{{ item.logoUrl }}"
+          altText="{{ item.altText }}"
+        ></app-logo>
+
+        <div class="card-body">
+          <span class="span-card">{{ item.spantext }}</span>
+          <p class="p-card">
+            {{ item.ptext }}
+          </p>
+        </div>
+        <!-- <button type="button" id="btn-card" class="">Know More &#10140;</button> -->
+      </div>
+    </div>
+  </div>
+</section>

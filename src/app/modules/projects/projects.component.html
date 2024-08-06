@@ -1,0 +1,26 @@
+<section class="Projects" id="Projects">
+  <app-section-heading title="Projects"></app-section-heading>
+  <app-section-heading subtitle="The Art of My Work"></app-section-heading>
+  <div class="grid-card" appCardAnimation>
+    <div class="projectcard" *ngFor="let item of projects">
+      <!-- Hamro Bazar -->
+
+      <div class="project project1">
+        <app-logo
+          logoUrl="{{ item.logoUrl }}"
+          altText="{{ item.altText }}"
+          id="hamrobazar"
+        ></app-logo>
+
+        <div class="div-project">
+          <div class="project-body">
+            <span class="span-projects">{{ item.spantext }}</span>
+            <p class="p-projects">
+              {{ item.ptext }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
