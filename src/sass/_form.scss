@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .contact-form {
   display: flex;
@@ -20,13 +20,11 @@
 
       align-items: center;
 
-      img.contact-img {
+      app-logo img.contact-img {
         width: 70%;
       }
     }
   }
-
-  
 }
 
 .form-details {
@@ -34,23 +32,22 @@
   flex-direction: column;
   gap: 10px;
 
-  .form-group{
-    margin: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-    
+  .form-group {
+    margin: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
   }
 
   input {
     width: 90%;
-    
+
     height: 25px;
-    
+
     background-color: transparent;
-    color:$white;
+    color: $white;
     border: none;
-    
+
     border-bottom: 1px solid $white;
 
     &:focus {
@@ -59,20 +56,23 @@
   }
   label {
     font-size: $font-size-medium;
+
+    .red-astrik {
+      color: red;
+      font-weight: 200;
+    }
   }
   .hidden {
     display: none;
   }
-  
 
   textarea {
     background-color: transparent;
     height: 18px;
-  color: #e7e7e7;
-  border: none;
-  
-  border-bottom: 1px dashed #e7e7e7;
-
+    color: #e7e7e7;
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 0.5rem 0.2rem;
 
     &:focus {
       outline: none;
@@ -155,4 +155,16 @@ input[type="radio"] {
     display: flex;
     gap: 10px;
   }
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: rgb(255, 255, 255) !important;
 }

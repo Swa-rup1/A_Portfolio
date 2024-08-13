@@ -1,0 +1,261 @@
+@import "variables";
+
+// Media-Query
+
+@media (max-width: map-get($breakpoints, sm)) {
+  body {
+    padding: 0.5rem !important;
+  }
+
+  section {
+    margin-top: 5rem !important;
+  }
+
+  .nav-a {
+    margin: 2.5rem 0;
+  }
+}
+
+@media (max-width: map-get($breakpoints, sm)) {
+  .header {
+    padding: 15px 0px;
+    margin: 0 !important;
+    .nav-bar {
+      display: flex;
+      align-items: center;
+
+      .nav-menu {
+        ul.mid-nav {
+          gap: 1px;
+        }
+      }
+
+      .logo {
+        height: 45px;
+        width: 45px;
+      }
+      .nav-contact {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .mobile-nav.active {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: map-get($breakpoints, sm)) {
+  .mid-nav {
+    position: fixed;
+    left: -120%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: #000000;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 0px;
+  }
+
+  .mid-nav.active {
+    left: 0;
+  }
+
+  .nav-item {
+    margin: 1rem 0;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(50deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-15px) rotate(-45deg);
+  }
+}
+
+@media (max-width: map-get($breakpoints, sm)) {
+  .hero {
+    display: flex;
+    flex-direction: column !important;
+    padding: 20px !important;
+    gap: 1rem;
+  }
+  .hero-p {
+    letter-spacing: 0px;
+  }
+
+  .About .aboutsection {
+    margin-top: 1rem;
+  }
+
+  .left {
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+    padding: 0% !important;
+  }
+
+  .right {
+    width: 100% !important;
+  }
+
+  // Services Section
+
+  .services {
+    .grid-card {
+      display: grid !important;
+      grid-template-columns: repeat(1, 1fr);
+      align-items: center !important;
+      justify-content: center !important;
+      margin: auto;
+
+      .card-container {
+        margin-top: 1rem;
+        max-width: 100% !important;
+      }
+    }
+  }
+
+  // About Section
+
+  .About {
+    align-items: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+
+    .aboutsection {
+      flex-direction: column !important;
+      gap: 1rem !important;
+      align-items: center;
+      padding: 1rem;
+
+      .left-about {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .right-about {
+        display: block !important;
+        width: 100% !important;
+      }
+    }
+  }
+
+  #hero-btn {
+    width: 70% !important;
+    font-size: $font-size-small !important;
+  }
+
+  .span-subtitle {
+    font-size: $font-size-m-small !important;
+  }
+
+  .form-details {
+    width: 100% !important;
+    gap: 6px !important;
+  }
+
+  .Contact .contact-area {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-top: 1rem;
+
+    .contact-left {
+      width: 100% !important;
+
+      app-logo img.contact-img {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+
+  hr {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  app-button .app-button {
+    display: inline !important;
+    margin: 1rem 0px !important;
+  }
+
+  .span-form,
+  .p-form,
+  hr {
+    display: none !important;
+  }
+
+  footer {
+    padding: 0.5rem !important;
+  }
+
+  .footer-title {
+    display: none !important;
+  }
+
+  .grid-projectcard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+
+    .project {
+      max-height: 250px;
+    }
+
+    .project img {
+      height: 60px;
+    }
+
+    .span-projects {
+      font-size: $font-size-medium;
+    }
+
+    .p-projects {
+      font-size: $font-size-small;
+    }
+  }
+
+  .footer-head {
+    padding: 0px !important;
+  }
+
+  .footer-ul {
+    gap: 25px !important;
+    margin: 5px !important;
+    padding: 0px !important;
+  }
+
+  .footer-li {
+    font-size: $font-size-small;
+  }
+
+  .footer-logo {
+    height: 20px !important;
+  }
+
+  .advertisment {
+    gap: 0;
+  }
+
+  .right #bg-pic {
+    height: 300px;
+  }
+}

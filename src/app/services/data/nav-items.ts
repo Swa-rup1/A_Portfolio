@@ -73,7 +73,8 @@ export const Projects = [
     logoUrl: './assets/img/CompanyDarta.png',
     altText: 'Companydarta',
     spantext: 'Company-Darta',
-    ptext: 'Creating intuitive interfaces with visually appealing designs',
+    ptext:
+      'Crafting responsive, dynamic websites for engaging user experiences.',
   },
 
   {

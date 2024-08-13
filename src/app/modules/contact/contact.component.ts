@@ -1,17 +1,26 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
-  FormControl,
   FormGroup,
-  ReactiveFormsModule,
   Validators,
+  ValidatorFn,
 } from '@angular/forms';
 import { UserService } from '../../services/localdb/user.service';
 
+// Custom Validator
+// export function atLeastOneCheckboxCheckedValidator(): ValidatorFn {
+//   return (control: AbstractControl): { [key: string]: any } | null => {
+//     const checkboxes = control.value;
+//     const isAtLeastOneChecked = Object.values(checkboxes).some(
+//       (checked) => checked === true
+//     );
+//     return isAtLeastOneChecked ? null : { atLeastOneCheckboxChecked: true };
+//   };
+// }
+
 @Component({
   selector: 'app-contact',
-
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
@@ -21,33 +30,41 @@ export class ContactComponent {
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.TodoForm = this.fb.group({
-      fullName: [
-        '',
+      fullName: this.fb.control('', [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(20),
-      ],
-      Phone: ['', Validators.required],
+      ]),
+      Phone: this.fb.control('', Validators.required),
+      Email: this.fb.control('', [Validators.required, Validators.email]),
+      Message: this.fb.control('', Validators.required),
 
-      Email: ['', Validators.required, Validators.email],
-      Message: [
-        '',
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(200),
-      ],
+      // services: this.fb.group(
+      //   {
+      //     webDesign: this.fb.control(false),
+      //     uiUx: this.fb.control(false),
+      //     productDesign: this.fb.control(false),
+      //   },
+      //   { validators: atLeastOneCheckboxCheckedValidator() }
+      // ),
     });
   }
 
+  // Getter for easy access to form fields
   get f(): { [key: string]: AbstractControl } {
     return this.TodoForm.controls;
   }
+
   onSubmit() {
     this.submitted = true;
+
     if (this.TodoForm.valid) {
-      // Perform the form submission logic here
-      window.alert('Form submitted successfully!');
-      // Show the alert message
+      this.userService.addUser(this.TodoForm.value).subscribe(() => {
+        alert('User added successfully');
+        console.log('User added successfully');
+        console.log(this.TodoForm.value);
+        this.TodoForm.reset();
+      });
     }
   }
 
@@ -55,11 +72,4 @@ export class ContactComponent {
     this.submitted = false;
     this.TodoForm.reset();
   }
-
-  // Validators
-
-  // email = new FormControl('', [
-  //   Validators.required,
-  //   Validators.email
-  // ])
 }

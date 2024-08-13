@@ -7,23 +7,20 @@
   <div class="contact-area">
     <div class="contact-left">
       <app-logo
-        logoUrl="../assets/img/rafiki.svg"
+        logoUrl="../assets/img/bro.svg"
         class="contact-img"
         altText="Welcome"
       ></app-logo>
     </div>
 
     <div class="contact-form">
-      <form
-        [formGroup]="TodoForm"
-        (ngSubmit)="onSubmit()"
-        action=""
-        class="form-details"
-      >
+      <form [formGroup]="TodoForm" (ngSubmit)="onSubmit()" class="form-details">
         <div class="formitem">
           <!-- Full Name -->
           <div class="form-group">
-            <label for="Full Name">Name *</label>
+            <label for="Full Name"
+              >Name <span class="red-astrik"> *</span></label
+            >
             <input
               type="text"
               name="Full Name"
@@ -40,10 +37,10 @@
               <div *ngIf="f['fullName'].errors['required']">
                 Full Name is required
               </div>
-              <div *ngIf="f['fullName'].errors['minLength']">
+              <div *ngIf="f['fullName'].errors['minlength']">
                 Full Name must be at least 6 characters
               </div>
-              <div *ngIf="f['fullName'].errors['maxLength']">
+              <div *ngIf="f['fullName'].errors['maxlength']">
                 Full Name must not exceed 20 characters
               </div>
             </div>
@@ -51,13 +48,11 @@
 
           <!-- Email -->
           <div class="form-group">
-            <label for="Email">Email *</label>
+            <label for="Email">Email <span class="red-astrik"> *</span></label>
             <input
               type="email"
               name="Email"
               id="email"
-              ngModel
-              [email]="true"
               formControlName="Email"
               class="form-control"
               [ngClass]="{ 'is-invalid': submitted && f['Email'].errors }"
@@ -72,44 +67,73 @@
           </div>
 
           <!-- Phone -->
-
           <div class="form-group">
-            <label for="Phone No.">Phone No. *</label>
+            <label for="Phone No."
+              >Phone No. <span class="red-astrik"> *</span></label
+            >
             <input
               type="text"
               name="Phone No."
               id="PhoneNo"
               formControlName="Phone"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['Phone'].errors }"
             />
+            <div
+              *ngIf="submitted && f['Phone'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['Phone'].errors['required']">
+                Phone No. is required
+              </div>
+            </div>
           </div>
 
           <!-- Choose Services  -->
           <div class="form-service form-group">
-            <label for="services">Services *</label>
+            <label for="services"
+              >Services <span class="red-astrik"> *</span></label
+            >
             <div class="option-1 option">
-              <input type="checkbox" name="Web-design" id="check-input" />
-              <label for="Web-design">Web-design</label>
+              <input
+                type="checkbox"
+                formControlName="webDesign"
+                id="check-web-design"
+              />
+              <label for="check-web-design">Web-design</label>
             </div>
             <div class="option-2 option">
-              <input type="checkbox" name="UI-UX" id="check-input" />
-              <label for="UI-UX">UI Design</label>
+              <input type="checkbox" formControlName="uiUx" id="check-ui-ux" />
+              <label for="check-ui-ux">UI Design</label>
             </div>
             <div class="option-3 option">
-              <input type="checkbox" name="productdesign" id="check-input" />
-              <label for="productdesign">Product Design</label>
+              <input
+                type="checkbox"
+                formControlName="productDesign"
+                id="check-product-design"
+              />
+              <label for="check-product-design">Product Design</label>
+            </div>
+            <div
+              *ngIf="submitted && f['services'].errors?.['atLeastOneCheckboxChecked']"
+              class="invalid-feedback"
+            >
+              At least one service must be selected
             </div>
           </div>
 
+          <!-- Message -->
           <div class="form-group">
-            <label for="textarea">How can we help ? *</label>
+            <label for="textarea"
+              >How can we help? <span class="red-astrik"> *</span></label
+            >
             <textarea
-              class="form-group"
               name="message"
               id="message"
               cols="60"
-              placeholder="A brief description here."
               formControlName="Message"
               class="form-control"
+              placeholder="A brief description here."
               [ngClass]="{ 'is-invalid': submitted && f['Message'].errors }"
             ></textarea>
             <div
@@ -119,15 +143,16 @@
               <div *ngIf="f['Message'].errors['required']">
                 Message is required
               </div>
-              <div *ngIf="f['Message'].errors['minlength']">
-                Message must be at least 6 characters
-              </div>
-              <div *ngIf="f['Message'].errors['maxlength']">
-                Message must not exceed 20 characters
-              </div>
             </div>
+          </div>
 
-            <app-button title="Get In Touch"></app-button>
+          <div class="form-group btn-submit">
+            <app-button
+              type="submit"
+              class="app-button"
+              title="Get In Touch"
+              id="button-submit"
+            ></app-button>
           </div>
         </div>
       </form>
